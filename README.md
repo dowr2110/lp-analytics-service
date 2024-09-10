@@ -5,20 +5,8 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby version - 3.0.0
+* Without Docker command for install and run dependencies (MacOS): `brew install rabbitmq`, `brew services start rabbitmq`, install MongoDB, `brew services start mongodb-community`
+* Run commands by project: `bundle install`
+* Run workers: for example, `rake worker:start_analytics_worker`
+* `rails s`
