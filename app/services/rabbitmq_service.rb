@@ -1,6 +1,10 @@
 class RabbitmqService
   def self.subscribe(queue)
-    connection = Bunny.new
+    connection = if ENV['RABBITMQ_URL'].present?
+                   Bunny.new(host: 'rabbitmq', port: 5672, automatically_recover: true)
+                 else
+                   Bunny.new
+                 end
     connection.start
 
     channel = connection.create_channel
