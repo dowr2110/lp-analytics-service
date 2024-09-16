@@ -18,7 +18,7 @@ class BookingReportsController < ApplicationController
       :created_at.lte => date.end_of_month
     )
 
-    report = generate_report(booking_events_current_month, 'report by current day')
+    report = generate_report(booking_events_current_month, 'report by current month')
 
     render json: report
   end
@@ -29,7 +29,7 @@ class BookingReportsController < ApplicationController
       :created_at.lte => 1.week.ago.end_of_week
     )
 
-    report = generate_report(booking_events_last_week, 'report by current day')
+    report = generate_report(booking_events_last_week, 'report by current weekly')
 
     render json: report
   end
@@ -54,5 +54,6 @@ class BookingReportsController < ApplicationController
 
     report[:bookings_by_hour] = bookings_by_hour
     report[:peak_hour] = peak_hour
+    report
   end
 end
